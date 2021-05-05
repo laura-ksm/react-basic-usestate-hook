@@ -7,6 +7,11 @@ const App = () => {
 
   const [task, setTask] = useState(data);
 
+  const addTask = text => {
+    const newTask = [...task, text];
+    setTask(newTask);
+  }
+
   return (
     <div>
       {task.map( (element, index) => (
