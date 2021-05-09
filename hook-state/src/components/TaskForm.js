@@ -1,23 +1,17 @@
-// crear tarea
-
-import React from 'react'
+import React, {useState} from 'react'
 
 const TaskForm = ({ addTask }) => {
     
-    const [text, setText] = React.useState("");
-    // const [completed, setCompleted] = React.useState(false);
+    const [text, setText] = useState('')
 
     const handleTask = e => {
-        e.preventDefault();
-
+        e.preventDefault()
         if (!text){
-            alert('ADD A TASK, PLEASE.');
-            return;
+            alert('ADD A TASK, PLEASE.')
+            return
         }
-        
-        addTask({ text });
-        
-        setText("");
+        addTask({ text })
+        setText('')
     }
 
     return (

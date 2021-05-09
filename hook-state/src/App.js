@@ -5,18 +5,38 @@ import TaskForm from './components/TaskForm'
 
 const App = () => {
 
-  const [task, setTask] = useState(data);
+  const [tasks, setTasks] = useState(data)
 
   const addTask = text => {
-    const newTask = [...task, text];
-    setTask(newTask);
+    const newTask = [...tasks, {text}]
+    setTasks(newTask)
+  }
+
+  const isCompleted = index => {
+    const newTask = [...tasks]
+    if ( newTask[index].completed ){
+      newTask[index].completed = false
+    }else{
+      newTask[index].completed = true
+    }
+    setTasks(newTask)
+  }
+
+  const removeTask = index => {
+    const newTask = [...tasks]
+    newTask.splice(index, 1)
+    setTasks(newTask)
   }
 
   return (
     <div>
-      {task.map( (element, index) => (
-        <Task key={index} index={index} task={element}/>
-      ))}
+        {tasks.map( (task, index) => (
+          <Task key={index}
+          index={index}
+          task={task}
+          isCompleted={isCompleted}
+          removeTask={removeTask}/>
+        ))}
       <TaskForm addTask={addTask}/>
     </div>
   );
