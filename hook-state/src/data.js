@@ -1,4 +1,4 @@
 export const data = [
-    {text:'Cleaning the house', completed: true},
-    {text:'walk the dog', completed: false}
+    {text:'cleaning the house', completed: false},
+    {text:'walking the dog', completed: true}
 ]
